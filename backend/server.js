@@ -9,6 +9,7 @@ const userRoutes = require('./routes/userRoutes');
 const storeRoutes = require('./routes/storeRoutes');
 const ratingRoutes = require('./routes/ratingRoutes');
 const dashboardRoutes = require('./routes/dashboardRoutes');
+const seedAdminIfMissing = require('./utils/seedAdmin');
 
 const app = express();
 
@@ -47,7 +48,9 @@ async function start() {
 
     // sync models (creates tables if they don't exist)
     await sequelize.sync();
-    console.log('Models synced');
+console.log('Models synced');
+
+await seedAdminIfMissing();
 
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
