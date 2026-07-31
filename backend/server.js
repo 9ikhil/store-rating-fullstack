@@ -16,7 +16,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(cors({ origin: 'https://store-rating-app.vercel.app' }));
+app.use(cors({ origin: 'https://store-rating-app-nine-iota.vercel.app' }));
 
 app.get('/', (req, res) => {
   res.json({ message: 'Store Rating API is running' });
